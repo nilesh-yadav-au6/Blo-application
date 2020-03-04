@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+       <li>
+        <h2> Welcome : {{name}}</h2>
+      </li>
+      <li class="nav-item">
+        <h2><a class="nav-link" href="/login">Logout</a></h2>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div>
+    {{!-- {{#if length}} --}}
+     <h1>Your Blog <span><a href='/create/blog'> <button type="button" class="btn btn-dark">Create New Blog</button></a></span></h1>
+<ul>
+  {{#each blog}}
+
+    <div class="blogOutter" >
+        <h3>Tiltle: {{this.title}}</h3>
+        <h3>Body:</h3>
+        <div class="blog">
+          <h4> {{this.body}}</h4>
+        </div>
+        <div class="blog">
+          <span>
+            <a href={{constructUpdate}}><button type="button" class="btn btn-dark">Edit</button></a>
+           <form action={{constructDelete}} method="POST">
+               <button type="submit" class="btn btn-danger">Danger</button>
+            </form>
+          </span>
+       
+        </div>
+    </div>
+
+  {{/each}}
+</ul>
+ {{!-- {{else}} --}}
+ <h1>NO Blogs Created Now <span>   <a href='/create/blog'> <button type="button" class="btn btn-dark">Create New Blog</button></a></span> </h1>
+
+ {{!-- {{/if}} --}}
+
+  </div>
