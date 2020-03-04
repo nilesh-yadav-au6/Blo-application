@@ -5,6 +5,8 @@ var dotenv = require("dotenv");
 dotenv.config();
 var app = express();
 require("./db")
+
+var PORT = process.env.PORT || 1234
 var hbs = require("hbs");
 var path = require("path");
 var usernormalroter = require("./routes/userroutes/usernormalroutes")
@@ -46,6 +48,6 @@ app.get("/" , function(req,res){
     res.render("index" ,{title:"Home Page"})
 });
 
-app.listen("1234",function(){
-    console.log("Server running on 1234")
+app.listen(PORT,function(){
+    console.log(`Server running on ${PORT}`)
 });
